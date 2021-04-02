@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "standard"
+  ],
+  "globals": {
+    "__dirname": true,
+    "process": true
+  },
+  "rules": {
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "no-var": "error",
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "strict": [
+      "error",
+      "never"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+"use strict";
+
+var _yargs = _interopRequireDefault(require("./core/yargs"));
+
+var _init = _interopRequireDefault(require("./commands/init"));
+
+var _migrate = _interopRequireDefault(require("./commands/migrate"));
+
+var _migrate_undo = _interopRequireDefault(require("./commands/migrate_undo"));
+
+var _migrate_undo_all = _interopRequireDefault(require("./commands/migrate_undo_all"));
+
+var _seed = _interopRequireDefault(require("./commands/seed"));
+
+var _seed_one = _interopRequireDefault(require("./commands/seed_one"));
+
+var _migration_generate = _interopRequireDefault(require("./commands/migration_generate"));
+
+var _model_generate = _interopRequireDefault(require("./commands/model_generate"));
+
+var _seed_generate = _interopRequireDefault(require("./commands/seed_generate"));
+
+var _database = _interopRequireDefault(require("./commands/database"));
+
+var _index = _interopRequireDefault(require("./helpers/index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const yargs = (0, _yargs.default)();
+
+_index.default.view.teaser();
+
+yargs.help().version().command('db:migrate', 'Run pending migrations', _migrate.default).command('db:migrate:schema:timestamps:add', 'Update migration table to have timestamps', _migrate.default).command('db:migrate:status', 'List the status of all migrations', _migrate.default).command('db:migrate:undo', 'Reverts a migration', _migrate_undo.default).command('db:migrate:undo:all', 'Revert all migrations ran', _migrate_undo_all.default).command('db:seed', 'Run specified seeder', _seed_one.default).command('db:seed:undo', 'Deletes data from the database', _seed_one.default).command('db:seed:all', 'Run every seeder', _seed.default).command('db:seed:undo:all', 'Deletes data from the database', _seed.default).command('db:create', 'Create database specified by configuration', _database.default).command('db:drop', 'Drop database specified by configuration', _database.default).command('init', 'Initializes project', _init.default).command('init:config', 'Initializes configuration', _init.default).command('init:migrations', 'Initializes migrations', _init.default).command('init:models', 'Initializes models', _init.default).command('init:seeders', 'Initializes seeders', _init.default).command(['migration:generate', 'migration:create'], 'Generates a new migration file', _migration_generate.default).command(['model:generate', 'model:create'], 'Generates a model and its migration', _model_generate.default).command(['seed:generate', 'seed:create'], 'Generates a new seed file', _seed_generate.default).wrap(yargs.terminalWidth()).demandCommand(1, 'Please specify a command').help().strict().recommendCommands().argv;
