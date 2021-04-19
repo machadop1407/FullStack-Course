@@ -18,6 +18,7 @@ function Home() {
       {listOfPosts.map((value, key) => {
         return (
           <div
+            key={key}
             className="post"
             onClick={() => {
               history.push(`/post/${value.id}`);
