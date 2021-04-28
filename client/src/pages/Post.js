@@ -96,7 +96,6 @@ function Post() {
                       deleteComment(comment.id);
                     }}
                   >
-                    {" "}
                     X
                   </button>
                 )}
