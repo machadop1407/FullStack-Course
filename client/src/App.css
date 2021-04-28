@@ -121,6 +121,12 @@ span {
   color: white;
 }
 
+.navbar button {
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}
+
 /* INDIVIDUAL POST */
 .postPage {
   display: flex;
